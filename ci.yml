@@ -1,4 +1,16 @@
-#include <stdio.h>
-int main (){
-printf("HELLO");
-}
+name: Hello World CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print Hello World
+        run: echo "Hello World"
