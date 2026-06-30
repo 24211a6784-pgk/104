@@ -1,0 +1,40 @@
+# =========================
+# GitHub Actions Workflow
+# =========================
+name: CI Print Demo
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Print Message
+        run: echo "Hello from GitHub Actions CI pipeline!"
+
+# =========================
+# GitLab CI Pipeline
+# =========================
+stages:
+  - build
+
+print-job:
+  stage: build
+  script:
+    - echo "Hello from GitLab CI pipeline!"
+
+# =========================
+# Azure Pipelines
+# =========================
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo "Hello from Azure CI pipeline!"
+  displayName: Print Message
